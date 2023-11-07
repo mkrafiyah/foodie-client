@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 const PurchaseFood = () => {
@@ -22,8 +23,28 @@ const PurchaseFood = () => {
         const date = form.date.value;
         const email = form.email.value;
 
-        const purchaseFood = {buyer, name, quantity, date,  price, email}
-        console.log(purchaseFood)
+        const newOrder = {buyer, name, quantity, date,  price, email}
+        console.log(newOrder)
+
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newOrder)
+        })
+        .then(res=>res.json())
+        .then(data =>{
+            if(data.insertedId){
+                Swal.fire({
+                    icon: 'Success!',
+                    title: 'Success!',
+                    text: 'Order added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                  })
+            }
+        })
     }
     return (
         <div>
