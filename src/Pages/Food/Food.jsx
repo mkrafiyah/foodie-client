@@ -1,7 +1,7 @@
 
 
 const Food = ({ food }) => {
-    console.log(food)
+
     return (
         <div className="mx-auto">
             <div className="card w-96 bg-base-100 shadow-xl">
