@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Food = ({ food }) => {
@@ -14,7 +15,9 @@ const Food = ({ food }) => {
                     <p>{food.Category}</p>
                     <div className="card-actions justify-end">
                         <div className="badge badge-outline">{food.Quantity}</div>
+                        <Link to={`/allFoods/${food.Name}`}>
                         <button className="btn btn-xs bg-amber-900 text-white">Details</button>
+                        </Link>
                     </div>
                     
                 </div>

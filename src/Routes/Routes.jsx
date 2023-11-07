@@ -6,6 +6,8 @@ import AllFood from "../Pages/AllFood/AllFood";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import SingleFood from "../Pages/SingleFood/SingleFood";
+import PurchaseFood from "../Pages/PurchaseFood/PurchaseFood";
 
 const router = createBrowserRouter([
     {
@@ -22,9 +24,17 @@ const router = createBrowserRouter([
             element: <Blog></Blog>
         },
         {
-            path: '/allFood',
+            path: '/allFoods',
             element: <AllFood></AllFood>,
             loader: ()=>fetch('http://localhost:5000/allFoodsCount')
+        },
+        {
+            path: '/allFoods/:Name',
+            element: <SingleFood></SingleFood>
+        },
+        {
+           path: '/allFoods/:Name/foodDetail/:id',
+           element: <PurchaseFood></PurchaseFood>
         },
         {
             path: '/login',
