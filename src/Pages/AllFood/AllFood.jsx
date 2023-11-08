@@ -6,7 +6,6 @@ import { useLoaderData } from "react-router-dom";
 const AllFood = () => {
     const [allFoods, setAllFoods] = useState([]);
     const {count} = useLoaderData();
-    console.log(count)
     const [cardsPerPage, setCardsPerPage] = useState(9);
     const [currentPage, setCurrentPage] = useState(0);
     const numberOfPages = Math.ceil(count / cardsPerPage);

@@ -1,10 +1,48 @@
-import { Link } from "react-router-dom";
-
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+   const {signInUser, signInWithGoogle} = useContext(AuthContext);
+   const navigate = useNavigate();
+   const location = useLocation();
+   const [successLogin, setSuccessLogin] = useState('');
+    const [errorLogin, setErrorLogin] = useState('');
+   
+   
+    const handleLogin = e =>{
+       e.preventDefault();
 
-   const handleLogin = e =>{
-    e.preventDefault();
+       const form = new FormData(e.currentTarget)
+        
+        const email = form.get("email");
+        const password = form.get("password");
+        console.log(email, password)
+
+        setSuccessLogin('');
+        setErrorLogin('');
+
+        //signIn user
+        signInUser(email, password)
+        .then(result=>{
+            setSuccessLogin('successful', result.user)
+            e.target.reset();
+            navigate(location?.state ? location.state : '/')
+        })
+        .catch(error=>{
+            setErrorLogin(error.message);
+        })
+   }
+//google signIn
+   const handleGoogle = () =>{
+    signInWithGoogle()
+    .then(result=>{
+        console.log(result.user)
+    })
+    .catch(error=>{
+        console.error(error)
+    })
    }
     return (
         <div className="flex justify-between">
@@ -37,11 +75,22 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn bg-amber-900 text-white">Login</button>
                             </div>
+                            <p className="text-center mt-2">---OR---</p>
+                            <div className="form-control mt-6">
+                                <button onClick={handleGoogle} className="btn bg-amber-900 text-white">Google Login</button>
+                            </div>
                             <p>Do not have an account? Go to <Link className="text-amber-900 font-bold" to='/registration'>Register</Link> </p>
                         </form>
                     </div>
                 </div>
             </div>
+            {
+               successLogin &&  Swal.fire('Login SuccessFul!')
+                
+            }
+            {
+                errorLogin &&  <p>{errorLogin}</p>
+            }
         </div>
     );
 };

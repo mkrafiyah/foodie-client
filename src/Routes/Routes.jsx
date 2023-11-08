@@ -8,6 +8,9 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import SingleFood from "../Pages/SingleFood/SingleFood";
 import PurchaseFood from "../Pages/PurchaseFood/PurchaseFood";
+import MyOrder from "../Pages/MyOrder/MyOrder";
+import MyAddFood from "../Pages/MyAddFood/MyAddFood";
+import Profile from "../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +39,7 @@ const router = createBrowserRouter([
            path: '/allFoods/:Name/foodDetail/:id',
            element: <PurchaseFood></PurchaseFood>
         },
+        
         {
             path: '/login',
             element: <Login></Login>
@@ -43,9 +47,26 @@ const router = createBrowserRouter([
         {
             path: '/registration',
             element: <Registration></Registration>
-        }
+        },
+        {
+                path: '/profile',
+                element: <Profile></Profile>,
+                children: [
+                    {
+                        path: '/profile/myOrder',
+                        element: <MyOrder></MyOrder>
+                    },
+                    {
+                        path:  '/profile/myAddFood',
+                        element: <MyAddFood></MyAddFood>
+                    }
+                ]
+            }
+       
       ]
+      
     },
+
   ]);
 
 

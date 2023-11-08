@@ -1,10 +1,31 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Registration = () => {
 
+    const {createUser} = useContext(AuthContext);
+
     const handleRegister = e =>{
         e.preventDefault();
+
+        const form = new FormData(e.currentTarget)
+        const name = form.get("name");
+        const photo = form.get("photo");
+        const email = form.get("email");
+        const password = form.get("password");
+        console.log(name, photo,email, password)
+
+        //create user
+        createUser(email, password)
+        .then(result=>{
+            console.log(result.user)
+            e.target.reset();
+        })
+        .catch(error=>{
+            console.error(error)
+        })
     }
     return (
         <div className="flex justify-between">

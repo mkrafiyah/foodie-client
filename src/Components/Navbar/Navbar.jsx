@@ -1,6 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import {FaUser} from 'react-icons/fa';
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext);
+
+    const handleLogOut = () =>{
+        logOut()
+        .then(()=>console.log('loged out'))
+        .catch(error=>console.error(error))
+    }
     return (
         <div className="navbar bg-amber-100">
             <div className="navbar-start">
@@ -12,14 +23,23 @@ const Navbar = () => {
                         <li><a><NavLink to='/'>Home</NavLink></a></li>
                         <li><a><NavLink to='/allFoods'>All Food Items</NavLink></a></li>
                         <li><a><NavLink to='/blog'>Blog</NavLink></a></li>
-                        <li>
-                        <NavLink to='/profile'>Profile</NavLink>
-                            <ul className="p-2">
+                        {
+                           user?.email? <>
+                           <NavLink to='/profile'>Profile</NavLink>
+                           <ul >
                                 <li><a>My added food items</a></li>
+                                <NavLink to='/profile/myAddFood'>
                                 <li><a>Add a food item</a></li>
-                                <li><a>My ordered food items</a></li>
+                                </NavLink>
+                                
+                                <NavLink to='/profile/myOrder'><li><a>My ordered food items</a></li></NavLink>
                             </ul>
-                        </li>
+                           </> :
+                          <NavLink to='/login'>
+                          <a className="btn btn-ghost btn-sm">Login</a>
+                           </NavLink>
+                        }
+                        
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-3xl italic ml-0 mb-3">
@@ -32,23 +52,43 @@ const Navbar = () => {
                     <li><a><NavLink to='/'>Home</NavLink></a></li>
                     <li><a><NavLink to='/allFoods'>All Food Items</NavLink></a></li>
                     <li><a><NavLink to='/blog'>Blog</NavLink></a></li>
+                    
+                    
                     <li tabIndex={0}>
+                    {
+                                user?.email? <>
                         <details>
-                            <summary><NavLink to='/profile'>Profile</NavLink></summary>
+                           
+                                <summary><NavLink to='/profile'>Profile</NavLink></summary>
                             <ul className="p-2 w-[200px]">
                                 <li><a>My added food items</a></li>
+                                <NavLink to='/profile/myAddFood'>
                                 <li><a>Add a food item</a></li>
-                                <li><a>My ordered food items</a></li>
+                                </NavLink>
+                                <NavLink to='/profile/myOrder'><li><a>My ordered food items</a></li></NavLink>
                             </ul>
-                        </details>
-                    </li>
+                            </details>
+                                </> 
+                                : 
+                                   <p> <FaUser></FaUser></p>
+                            }
+                             </li>
+                            
+                       
                 </ul>
             </div>
             <div className="navbar-end">
-            <NavLink to='/login'>
-                
-                <a className="btn btn-ghost btn-sm">Login</a>
-           </NavLink> </div>
+                {
+                    user ? <>
+                    <span>{user.email}</span>
+                    <a onClick={handleLogOut} className="btn btn-sm">Sign Out</a>
+                    </> :
+                    <NavLink to='/login'>
+                    <a className="btn btn-ghost btn-sm">Login</a>
+               </NavLink>
+
+                }
+             </div>
         </div>
     );
 };
