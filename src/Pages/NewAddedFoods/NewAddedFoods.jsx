@@ -7,7 +7,7 @@ const NewAddedFoods = () => {
 
     const [addedFoods, setAddedFoods] = useState([]);
     const {user} = useContext(AuthContext);
-    const url = `http://localhost:5000/addNewFood?email=${user?.email}`
+    const url = `https://restaurent-server-lime.vercel.app/addNewFood?email=${user?.email}`
 
     useEffect( ()=>{
         fetch(url)

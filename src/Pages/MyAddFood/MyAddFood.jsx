@@ -23,7 +23,7 @@ const MyAddFood = () => {
        console.log(newFood)
 
        //send data to the server
-       fetch('http://localhost:5000/addNewFood', {
+       fetch('https://restaurent-server-lime.vercel.app/addNewFood', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

@@ -8,7 +8,7 @@ const MyOrder = () => {
     const {user} = useContext(AuthContext);
     const [myOrderedFood, setMyOrderedFood] = useState([]);
     
-    const url = `http://localhost:5000/order?email=${user?.email}`
+    const url = `https://restaurent-server-lime.vercel.app/order?email=${user?.email}`
     useEffect( ()=>{
         fetch(url)
         .then(res=> res.json())
@@ -18,7 +18,7 @@ const MyOrder = () => {
     const handleDelete = _id =>{
         const proceed = confirm('are you sure?')
         if(proceed){
-          fetch(`http://localhost:5000/order/${_id}`, {
+          fetch(`https://restaurent-server-lime.vercel.app/order/${_id}`, {
             method: 'DELETE'
           })
           .then(res=>res.json())

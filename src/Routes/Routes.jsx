@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         {
             path: '/allFoods',
             element: <AllFood></AllFood>,
-            loader: ()=>fetch('http://localhost:5000/allFoodsCount')
+            loader: ()=>fetch('https://restaurent-server-lime.vercel.app/allFoodsCount')
         },
         {
             path: '/allFoods/:Name',

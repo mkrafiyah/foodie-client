@@ -10,7 +10,7 @@ const UpdateFoods = () => {
     const [foodUpdate, setFoodUpdate] = useState([]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/update/${params.id}`)
+        fetch(`https://restaurent-server-lime.vercel.app/update/${params.id}`)
         .then(res=>res.json())
         .then(data=>{
             setFoodUpdate(data)
@@ -36,7 +36,7 @@ const UpdateFoods = () => {
        console.log(updateFood)
 
        //send data to the server
-       fetch(`http://localhost:5000/update/${params.name}`, {
+       fetch(`https://restaurent-server-lime.vercel.app/update/${params.name}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

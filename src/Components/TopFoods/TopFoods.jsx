@@ -8,7 +8,7 @@ const TopFoods = () => {
     const [countedFoods, setCountedFoods] = useState([]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/order?count=${user.count}`)
+        fetch(`https://restaurent-server-lime.vercel.app/order?count=${user?.count}`)
         .then(res=>res.json())
         .then(data=>{
             setCountedFoods(data)

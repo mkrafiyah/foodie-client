@@ -8,7 +8,7 @@ const SingleFood = () => {
     const params = useParams();
 
     useEffect( ()=>{
-        fetch(`http://localhost:5000/allFoods/${params.Name}`)
+        fetch(`https://restaurent-server-lime.vercel.app/allFoods/${params.Name}`)
         .then(res => res.json())
             .then(data => setSinglePageFood(data))
     },[])

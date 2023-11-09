@@ -21,7 +21,7 @@ const AllFood = () => {
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/allFoods?page=${currentPage}&size=${cardsPerPage}`)
+        fetch(`https://restaurent-server-lime.vercel.app/allFoods?page=${currentPage}&size=${cardsPerPage}`)
         .then(res=>res.json())
         .then(data => setAllFoods(data))
     }, [currentPage]);

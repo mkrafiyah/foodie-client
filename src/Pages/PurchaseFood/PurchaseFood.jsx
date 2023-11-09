@@ -11,7 +11,7 @@ const PurchaseFood = () => {
     const {user} =useContext(AuthContext)
 
     useEffect( ()=>{
-        fetch(`http://localhost:5000/foodDetail/${params.id}`)
+        fetch(`https://restaurent-server-lime.vercel.app/foodDetail/${params.id}`)
         .then(res=> res.json())
         .then(data=>setPurchaseFood(data))
     },[])
@@ -32,7 +32,7 @@ const PurchaseFood = () => {
         const newOrder = {buyer, name, quantity, date,  price, email,time, image, count}
         console.log(newOrder)
 
-        fetch(`http://localhost:5000/order`, {
+        fetch(`https://restaurent-server-lime.vercel.app/order`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
