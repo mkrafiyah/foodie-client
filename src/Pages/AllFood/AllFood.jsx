@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Food from "../Food/Food";
 import { useLoaderData } from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 
 const AllFood = () => {
@@ -26,6 +27,9 @@ const AllFood = () => {
     }, [currentPage]);
     return (
         <div>
+            <Helmet>
+                <title>R-Foodie|AllFood</title>
+            </Helmet>
             <div className="grid grid-cols-3 gap-8  my-12 ">
         {
             allFoods.map(food => <Food key={food._id} food={food}></Food>)

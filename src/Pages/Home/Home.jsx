@@ -4,10 +4,11 @@ import TableBook from "../../Components/TableBook/TableBook";
 import TopFoods from "../../Components/TopFoods/TopFoods";
 
 
+
 const Home = () => {
     return (
         <div>
-           
+            
            <Banner></Banner>
            <TopFoods></TopFoods>
            <TableBook></TableBook>

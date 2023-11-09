@@ -1,8 +1,11 @@
-
+import {Helmet} from "react-helmet";
 
 const Blog = () => {
     return (
         <div>
+            <Helmet>
+                <title>R-Foodie|Blog</title>
+            </Helmet>
             <h2 className=" mt-6 text-3xl font-bold text-center">Blog Page</h2>
             <div className="bg-yellow-100 rounded-lg p-6 mt-6 shadow-xl">
            <h2 className="text-xl font-bold"> Question 1. What is One way data binding?</h2>
