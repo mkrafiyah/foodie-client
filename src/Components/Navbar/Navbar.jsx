@@ -9,7 +9,7 @@ const Navbar = () => {
 
     const handleLogOut = () =>{
         logOut()
-        .then(()=>console.log('loged out'))
+        .then(()=>console.log('logged out'))
         .catch(error=>console.error(error))
     }
     return (
@@ -26,18 +26,21 @@ const Navbar = () => {
                         {
                            user?.email? <>
                            <NavLink to='/profile'>Profile</NavLink>
-                           <ul >
-                                <li><a>My added food items</a></li>
+                           <NavLink to= '/profile/newAdded'><li><a>My added food items</a></li></NavLink>
+                           <NavLink to='/profile/myAddFood'>
+                                <li><a>Add a food item</a></li>
+                                </NavLink>
+                                <NavLink to='/profile/myOrder'><li><a>My ordered food items</a></li></NavLink>
+                           {/* <ul >
+                           <NavLink to= '/profile/newAdded'><li><a>My added food items</a></li></NavLink>
                                 <NavLink to='/profile/myAddFood'>
                                 <li><a>Add a food item</a></li>
                                 </NavLink>
                                 
                                 <NavLink to='/profile/myOrder'><li><a>My ordered food items</a></li></NavLink>
-                            </ul>
+                            </ul> */}
                            </> :
-                          <NavLink to='/login'>
-                          <a className="btn btn-ghost btn-sm">Login</a>
-                           </NavLink>
+                          <p> <FaUser></FaUser></p>
                         }
                         
                     </ul>
@@ -60,13 +63,19 @@ const Navbar = () => {
                         <details>
                            
                                 <summary><NavLink to='/profile'>Profile</NavLink></summary>
-                            <ul className="p-2 w-[200px]">
-                                <li><a>My added food items</a></li>
+                                <NavLink to= '/profile/newAdded'><li><a>My added food items</a></li></NavLink>
+                           <NavLink to='/profile/myAddFood'>
+                                <li><a>Add a food item</a></li>
+                                </NavLink>
+                                <NavLink to='/profile/myOrder'><li><a>My ordered food items</a></li></NavLink>
+                            {/* <ul className="p-2 w-[200px]">
+                                <NavLink to= '/profile/newAdded'><li><a>My added food items</a></li></NavLink>
+                                
                                 <NavLink to='/profile/myAddFood'>
                                 <li><a>Add a food item</a></li>
                                 </NavLink>
                                 <NavLink to='/profile/myOrder'><li><a>My ordered food items</a></li></NavLink>
-                            </ul>
+                            </ul> */}
                             </details>
                                 </> 
                                 : 

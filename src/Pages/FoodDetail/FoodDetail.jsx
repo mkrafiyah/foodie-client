@@ -6,7 +6,7 @@ const FoodDetail = ({ foodDetail }) => {
     return (
         <div className="mt-10 w-[900px] h-[700px] mx-auto">
             <div className="card mx-10 bg-base-100 shadow-xl">
-                <figure><img className="" src={Image} alt="Shoes" /></figure>
+                <figure><img className="w-full h-96" src={Image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         {Name}

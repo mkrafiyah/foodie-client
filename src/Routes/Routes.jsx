@@ -11,6 +11,9 @@ import PurchaseFood from "../Pages/PurchaseFood/PurchaseFood";
 import MyOrder from "../Pages/MyOrder/MyOrder";
 import MyAddFood from "../Pages/MyAddFood/MyAddFood";
 import Profile from "../Pages/Profile/Profile";
+import NewAddedFoods from "../Pages/NewAddedFoods/NewAddedFoods";
+import UpdateFoods from "../Pages/UpdateFoods/UpdateFoods";
+import PrivateRout from "../Pages/PrivateRout/PrivateRout";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +36,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/allFoods/:Name',
-            element: <SingleFood></SingleFood>
+            element: <PrivateRout><SingleFood></SingleFood></PrivateRout>
         },
         {
            path: '/allFoods/:Name/foodDetail/:id',
@@ -59,9 +62,20 @@ const router = createBrowserRouter([
                     {
                         path:  '/profile/myAddFood',
                         element: <MyAddFood></MyAddFood>
-                    }
+                    },
+                    {
+                        path: '/profile/newAdded',
+                        element: <NewAddedFoods></NewAddedFoods>
+                    },
+                    {
+                
+                        path: '/profile/newAdded/update/:id',
+                        element: <UpdateFoods></UpdateFoods>
+                     }
+                    
                 ]
-            }
+            },
+           
        
       ]
       

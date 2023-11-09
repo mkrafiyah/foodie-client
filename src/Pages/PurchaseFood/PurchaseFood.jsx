@@ -56,7 +56,7 @@ const PurchaseFood = () => {
         <h2 className="text-3xl text-amber-900 font-bold text-center mb-8 mt-8">Purchase Food</h2>
 
         <form onSubmit={handlePurchaseFood} className="bg-orange-100 mb-20 p-24">
-            {/* form name and Brand Name row */}
+            {/*  row 1 */}
             <div className="md:flex mb-8">
                 <div className="form-control md:w-1/2">
                     <label className="label">
@@ -77,7 +77,7 @@ const PurchaseFood = () => {
                     </label>
                 </div>
             </div>
-            {/* form carType and Price row */}
+            {/*  row 2 */}
             <div className="md:flex mb-8">
                 <div className="form-control md:w-1/2">
                     <label className="label">
@@ -98,7 +98,7 @@ const PurchaseFood = () => {
                     </label>
                 </div>
             </div>
-            {/* form Short description and Rating row */}
+            {/*  row 3 */}
             <div className="md:flex mb-8">
                 <div className="form-control md:w-1/2">
                     <label className="label">
@@ -119,6 +119,7 @@ const PurchaseFood = () => {
                     </label>
                 </div>
             </div>
+              {/*  row 4 */}
             <div className="md:flex mb-8">
                 <div className="form-control md:w-1/2">
                     <label className="label">

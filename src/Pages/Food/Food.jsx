@@ -5,7 +5,7 @@ const Food = ({ food }) => {
 
     return (
         <div className="mx-auto">
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 h-96 bg-base-100 shadow-xl">
                 <figure><img src={food.Image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">

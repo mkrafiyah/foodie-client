@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const Profile = () => {
     return (
-        <div>
+        <div className="min-h-screen">
             
             <Outlet></Outlet>
         </div>

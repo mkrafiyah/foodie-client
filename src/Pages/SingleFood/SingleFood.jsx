@@ -17,7 +17,7 @@ const SingleFood = () => {
             {
                 singlePageFood.map(foodDetail=> <FoodDetail key={foodDetail._id} foodDetail={foodDetail}></FoodDetail>)
             }
-            ddd
+            
         </div>
     );
 };
