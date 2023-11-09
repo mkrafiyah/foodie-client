@@ -90,6 +90,7 @@ const Navbar = () => {
                 {
                     user ? <>
                     <span>{user.email}</span>
+                    <span>{user.imageURL}</span>
                     <a onClick={handleLogOut} className="btn btn-sm">Sign Out</a>
                     </> :
                     <NavLink to='/login'>

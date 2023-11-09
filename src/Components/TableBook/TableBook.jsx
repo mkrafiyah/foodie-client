@@ -7,7 +7,7 @@ const TableBook = () => {
             <div className="hero-content">
                 <div className="bg-white-100">
                 <h2 className="border-b-2 border-white-900 text-white text-3xl font-medium mb-4 w-full">Book A Table</h2>
-                <form className="w-[200px]" >
+                <form className="w-[200px] lg:w-full" >
                   <div className="mb-4 grid grid-cols-1 md:flex gap-5">
                   <span className="text-xl text-white">Your Name: </span>
                   <input className="py-3 px-7 rounded-lg" type="text" placeholder="Name"/>

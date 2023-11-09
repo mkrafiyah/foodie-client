@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const PurchaseFood = () => {
     const [purchaseFood, setPurchaseFood] = useState([]);
+    const [count, setCount] = useState(0);
     const params = useParams();
     const {user} =useContext(AuthContext)
 
@@ -28,7 +29,7 @@ const PurchaseFood = () => {
         const image = form.image.value;
         const time = form.time.value;
 
-        const newOrder = {buyer, name, quantity, date,  price, email,time, image}
+        const newOrder = {buyer, name, quantity, date,  price, email,time, image, count}
         console.log(newOrder)
 
         fetch(`http://localhost:5000/order`, {
@@ -142,7 +143,7 @@ const PurchaseFood = () => {
             </div>
         
 
-            <input type="submit" value="Purchase" className="btn btn-block bg-amber-900 text-white" />
+            <input onClick={()=> setCount(count + 1)} type="submit" value="Purchase" className="btn btn-block bg-amber-900 text-white" />
         </form>
     </div>
     );
